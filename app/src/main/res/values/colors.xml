@@ -8,6 +8,9 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="dark_purple">#41245C</color>
+    <color name="dark_purple_variant">#21122E</color>
+    <color name="beige">#EBA059</color>
+    <color name="beige_dark">#8F6236</color>
     <color name="light_gray">#D9D9D9</color>
     <color name="gray">#636363</color>
 </resources>
