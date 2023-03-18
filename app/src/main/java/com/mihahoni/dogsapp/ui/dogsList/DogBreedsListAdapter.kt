@@ -3,9 +3,9 @@ package com.mihahoni.dogsapp.ui.dogsList
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.mihahoni.dogsapp.databinding.LayoutDogItemBinding
+import com.mihahoni.dogsapp.databinding.LayoutDogBreedItemBinding
 
-class DogsListRecycleViewAdapter : RecyclerView.Adapter<DogsListRecycleViewAdapter.ViewHolder>() {
+class DogBreedsListAdapter : RecyclerView.Adapter<DogBreedsListAdapter.ViewHolder>() {
 
     private lateinit var listener: BreedAdapterListener
     private var items: List<String?> = ArrayList()
@@ -21,7 +21,7 @@ class DogsListRecycleViewAdapter : RecyclerView.Adapter<DogsListRecycleViewAdapt
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        val binding = LayoutDogItemBinding.inflate(inflater)
+        val binding = LayoutDogBreedItemBinding.inflate(inflater)
         return ViewHolder(binding)
     }
 
@@ -39,7 +39,7 @@ class DogsListRecycleViewAdapter : RecyclerView.Adapter<DogsListRecycleViewAdapt
     override fun getItemCount(): Int = items.size
 
     inner class ViewHolder(
-        private val binding: LayoutDogItemBinding
+        private val binding: LayoutDogBreedItemBinding
     ) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(sourceItem: String?) {

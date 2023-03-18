@@ -17,7 +17,7 @@
     </fragment>
     <fragment
         android:id="@+id/dogsListFragment"
-        android:name="com.mihahoni.dogsapp.ui.dogsList.DogsListFragment"
+        android:name="com.mihahoni.dogsapp.ui.dogsList.DogBreedsListFragment"
         android:label="fragment_dogs_list_list"
-        tools:layout="@layout/fragment_dogs_list" />
+        tools:layout="@layout/fragment_dog_breeds_list" />
 </navigation>
