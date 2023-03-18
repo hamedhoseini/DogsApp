@@ -1,8 +1,8 @@
-package com.mihahoni.dogsapp.data
+package com.mihahoni.dogsapp.ui.presentation
 
 import android.graphics.drawable.Drawable
 
-data class PresentationEntity(
+data class PresentationViewItem(
     val image: Drawable?,
     val title: String,
     val description: String,

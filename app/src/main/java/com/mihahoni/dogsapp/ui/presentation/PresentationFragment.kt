@@ -11,7 +11,6 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.mihahoni.dogsapp.R
 import com.mihahoni.dogsapp.base.BaseFragment
-import com.mihahoni.dogsapp.data.PresentationEntity
 import com.mihahoni.dogsapp.databinding.FragmentPresentationBinding
 import com.mihahoni.dogsapp.util.ZoomOutPageTransformer
 import com.mihahoni.dogsapp.util.observeEvent
@@ -47,7 +46,7 @@ class PresentationFragment : BaseFragment<FragmentPresentationBinding>() {
         getViewDataBinding().viewModel = presentationViewModel
         setupFragmentPager(
             listOf(
-                PresentationEntity(
+                PresentationViewItem(
                     image = ContextCompat.getDrawable(
                         requireContext(),
                         R.drawable.img_presentation_dog1
@@ -55,7 +54,7 @@ class PresentationFragment : BaseFragment<FragmentPresentationBinding>() {
                     getString(R.string.hi_humans),
                     getString(R.string.do_you_want_know_us_more)
                 ),
-                PresentationEntity(
+                PresentationViewItem(
                     image = ContextCompat.getDrawable(
                         requireContext(),
                         R.drawable.img_presentation_dog2
@@ -63,7 +62,7 @@ class PresentationFragment : BaseFragment<FragmentPresentationBinding>() {
                     getString(R.string.breeds),
                     getString(R.string.get_to_know_different_breeds)
                 ),
-                PresentationEntity(
+                PresentationViewItem(
                     image = ContextCompat.getDrawable(
                         requireContext(),
                         R.drawable.img_presentation_dog3
@@ -75,7 +74,7 @@ class PresentationFragment : BaseFragment<FragmentPresentationBinding>() {
         )
     }
 
-    private fun setupFragmentPager(introContentList: List<PresentationEntity>) {
+    private fun setupFragmentPager(introContentList: List<PresentationViewItem>) {
         val pagerAdapter = ScreenSlidePagerAdapter(requireActivity(), introContentList)
         getViewDataBinding().introViewPager.apply {
             orientation = ViewPager2.ORIENTATION_HORIZONTAL
@@ -96,7 +95,7 @@ class PresentationFragment : BaseFragment<FragmentPresentationBinding>() {
 
     private inner class ScreenSlidePagerAdapter(
         fa: FragmentActivity,
-        val presentationContentList: List<PresentationEntity>
+        val presentationContentList: List<PresentationViewItem>
     ) : FragmentStateAdapter(fa) {
 
         override fun getItemCount(): Int = presentationContentList.size

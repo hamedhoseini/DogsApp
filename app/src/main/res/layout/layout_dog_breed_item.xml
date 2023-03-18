@@ -3,6 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:bind="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="breedViewItem"
+            type="com.mihahoni.dogsapp.ui.dogsList.DogBreedViewItem" />
+    </data>
+
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -30,6 +37,7 @@
                     android:layout_height="130dp"
                     android:scaleType="centerCrop"
                     android:src="@drawable/img_presentation_dog3"
+                    bind:imageUrl="@{breedViewItem.imageUrl}"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintDimensionRatio="w,1:1"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -43,7 +51,7 @@
                     android:layout_marginTop="@dimen/margin_16dp"
                     android:background="@color/gray_40_alpha"
                     android:gravity="center"
-                    android:text="Husky"
+                    android:text="@{breedViewItem.name}"
                     android:textColor="@color/white"
                     android:textSize="@dimen/textSizeBig"
                     app:layout_constraintBottom_toBottomOf="@+id/imageViewBreed"

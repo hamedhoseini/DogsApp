@@ -6,7 +6,7 @@
     <data>
         <variable
             name="presentationItem"
-            type="com.mihahoni.dogsapp.data.PresentationEntity" />
+            type="com.mihahoni.dogsapp.ui.presentation.PresentationViewItem" />
 
     </data>
 

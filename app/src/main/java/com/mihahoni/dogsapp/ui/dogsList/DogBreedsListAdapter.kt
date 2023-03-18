@@ -8,10 +8,10 @@ import com.mihahoni.dogsapp.databinding.LayoutDogBreedItemBinding
 class DogBreedsListAdapter : RecyclerView.Adapter<DogBreedsListAdapter.ViewHolder>() {
 
     private lateinit var listener: BreedAdapterListener
-    private var items: List<String?> = ArrayList()
+    private var items: List<DogBreedViewItem> = ArrayList()
 
-    fun submitItems(data: List<String>) {
-        items = data
+    fun updateItems(data: List<DogBreedViewItem>?) {
+        items = data ?: emptyList()
         notifyDataSetChanged()
     }
 
@@ -42,9 +42,8 @@ class DogBreedsListAdapter : RecyclerView.Adapter<DogBreedsListAdapter.ViewHolde
         private val binding: LayoutDogBreedItemBinding
     ) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(sourceItem: String?) {
-            binding.textViewBreedName.text = sourceItem
-            itemView.setOnClickListener { listener.onDogBreedClicked(sourceItem) }
+        fun bind(breedViewItem: DogBreedViewItem) {
+            binding.breedViewItem=breedViewItem
         }
     }
 
