@@ -2,10 +2,13 @@
     <string name="app_name">DogsApp</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="next">Next</string>
+    <string name="lets_go">Let\'s GO</string>
     <string name="hi_humans">Hi Humans</string>
-    <string name="do_you_want_know_us_more">Do you want know us more?</string>
+    <string name="do_you_want_know_us_more">Do you want to learn more about us?</string>
     <string name="breeds">Our Breeds</string>
     <string name="get_to_know_different_breeds">Get to know our different breeds</string>
     <string name="breeds_info">Breeds Info</string>
-    <string name="know_differences_and_similarities">Know our differences and similarities by breed detail and image</string>
+    <string name="learn_differences_and_similarities">Learn about our differences and similarities by images.</string>
+    <string name="all_dog_breeds">All Dog Breeds</string>
+    <string name="dog_breed_images">Dog Breed Images</string>
 </resources>

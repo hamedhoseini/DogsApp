@@ -7,8 +7,9 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
+import com.mihahoni.dogsapp.MainActivity
 
-abstract class BaseFragment <T : ViewDataBinding> : Fragment() {
+abstract class BaseFragment<T : ViewDataBinding> : Fragment() {
 
     private lateinit var mViewDataBinding: T
     abstract fun viewLayoutId(): Int
@@ -27,6 +28,22 @@ abstract class BaseFragment <T : ViewDataBinding> : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         initViews()
         observeViewModel()
+    }
+
+    fun initActionBar(show: Boolean, showBackBtn: Boolean? = null, title: String? = null) {
+        val actionBar = (requireActivity() as MainActivity).supportActionBar
+        if (show) {
+            actionBar?.show()
+        } else {
+            actionBar?.hide()
+        }
+        showBackBtn?.let {
+            actionBar?.setHomeButtonEnabled(it)
+            actionBar?.setDisplayHomeAsUpEnabled(it)
+        }
+        title?.let {
+            actionBar?.title = it
+        }
     }
 
     fun getViewDataBinding() = mViewDataBinding

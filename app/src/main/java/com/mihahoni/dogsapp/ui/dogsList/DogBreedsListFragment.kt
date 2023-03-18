@@ -32,6 +32,7 @@ class DogBreedsListFragment : BaseFragment<FragmentDogBreedsListBinding>() {
     }
 
     override fun initViews() {
+        initActionBar(show = true, showBackBtn = false, title = getString(R.string.all_dog_breeds))
         getViewDataBinding().viewModel = dogBreedsListViewModel
         getViewDataBinding().lifecycleOwner = this
 

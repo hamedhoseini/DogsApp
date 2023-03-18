@@ -30,6 +30,7 @@ class PresentationFragment : BaseFragment<FragmentPresentationBinding>() {
                 override fun onPropertyChanged(sender: Observable?, pageNumber: Int) {
                     val currentPage = (sender as ObservableInt).get()
                     if (currentPage == 3) {
+
                     } else {
                         getViewDataBinding().introViewPager.currentItem =
                             (sender as ObservableInt).get()
@@ -43,6 +44,7 @@ class PresentationFragment : BaseFragment<FragmentPresentationBinding>() {
     }
 
     override fun initViews() {
+        initActionBar(false)
         getViewDataBinding().viewModel = presentationViewModel
         setupFragmentPager(
             listOf(
@@ -68,7 +70,7 @@ class PresentationFragment : BaseFragment<FragmentPresentationBinding>() {
                         R.drawable.img_presentation_dog3
                     ),
                     getString(R.string.breeds_info),
-                    getString(R.string.know_differences_and_similarities)
+                    getString(R.string.learn_differences_and_similarities)
                 )
             )
         )

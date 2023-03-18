@@ -37,7 +37,7 @@
                     android:layout_width="130dp"
                     android:layout_height="130dp"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/img_presentation_dog3"
+                    android:src="@drawable/img_dog_avatar"
                     bind:imageUrl="@{breedViewItem.imageUrl}"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintDimensionRatio="w,1:1"

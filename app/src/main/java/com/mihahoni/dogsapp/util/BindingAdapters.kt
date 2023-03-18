@@ -5,6 +5,7 @@ import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.mihahoni.dogsapp.R
 import com.mihahoni.dogsapp.data.StateHandler
 import com.mihahoni.dogsapp.ui.dogsList.DogBreedViewItem
 import com.mihahoni.dogsapp.ui.dogsList.DogBreedsListAdapter
@@ -31,7 +32,7 @@ private fun getOrCreateAdapter(recyclerView: RecyclerView): DogBreedsListAdapter
 @BindingAdapter("bind:imageUrl")
 fun ImageView.loadImage(url: String?) {
     url?.let {
-        Glide.with(this.context).load(url).into(this);
+        Glide.with(this.context).load(url).placeholder(R.drawable.img_dog_avatar).into(this);
     }
 }
 

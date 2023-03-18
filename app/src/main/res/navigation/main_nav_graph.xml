@@ -12,6 +12,8 @@
         <action
             android:id="@+id/action_presentationFragment_to_dogsListFragment"
             app:destination="@id/dogsListFragment"
+            app:enterAnim="@animator/slide_in_right_with_bounce"
+            app:exitAnim="@animator/slide_out_left_with_bounce"
             app:popUpTo="@+id/main_navigation"
             app:popUpToInclusive="true" />
     </fragment>
@@ -22,7 +24,9 @@
         tools:layout="@layout/fragment_dog_breeds_list">
         <action
             android:id="@+id/action_dogsListFragment_to_dogBreedDetailFragment"
-            app:destination="@id/dogBreedDetailFragment" />
+            app:destination="@id/dogBreedDetailFragment"
+            app:enterAnim="@animator/slide_in_right_with_bounce"
+            app:exitAnim="@animator/slide_out_left_with_bounce"/>
     </fragment>
     <fragment
         android:id="@+id/dogBreedDetailFragment"
