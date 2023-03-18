@@ -1,7 +1,11 @@
 package com.mihahoni.dogsapp.intro
 
+import androidx.core.content.ContextCompat
+import androidx.databinding.Observable
+import androidx.databinding.ObservableInt
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
+import androidx.fragment.app.viewModels
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.mihahoni.dogsapp.R
@@ -18,24 +22,40 @@ class PresentationFragment : BaseFragment<FragmentPresentationBinding>() {
     override fun viewLayoutId(): Int = R.layout.fragment_presentation
 
     override fun observeViewModel() {
-//
+        presentationViewModel.pageNumber.addOnPropertyChangedCallback(
+            object : Observable.OnPropertyChangedCallback() {
+                override fun onPropertyChanged(sender: Observable?, pageNumber: Int) {
+                    getViewDataBinding().introViewPager.currentItem =
+                        (sender as ObservableInt).get()
+                }
+            })
     }
 
     override fun initViews() {
+        getViewDataBinding().viewModel = presentationViewModel
         setupFragmentPager(
             listOf(
                 PresentationEntity(
-                    image = R.drawable.img_presentation_dog,
+                    image = ContextCompat.getDrawable(
+                        requireContext(),
+                        R.drawable.img_presentation_dog1
+                    ),
                     getString(R.string.hi_humans),
                     getString(R.string.do_you_want_know_us_more)
                 ),
                 PresentationEntity(
-                    image = R.drawable.img_presentation_dog,
+                    image = ContextCompat.getDrawable(
+                        requireContext(),
+                        R.drawable.img_presentation_dog2
+                    ),
                     getString(R.string.breeds),
                     getString(R.string.get_to_know_different_breeds)
                 ),
                 PresentationEntity(
-                    image = R.drawable.img_presentation_dog,
+                    image = ContextCompat.getDrawable(
+                        requireContext(),
+                        R.drawable.img_presentation_dog3
+                    ),
                     getString(R.string.breeds_info),
                     getString(R.string.know_differences_and_similarities)
                 )
@@ -52,33 +72,13 @@ class PresentationFragment : BaseFragment<FragmentPresentationBinding>() {
             adapter = pagerAdapter
             registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
                 override fun onPageSelected(position: Int) {
-//                    when (position) {
-//                        0 -> {
-//                            binding.buttonNext.text = getString(R.string.start)
-//                            binding.textViewPrevious.visibility= View.VISIBLE
-//                            binding.textViewSkip.visibility= View.GONE
-//                        }
-//                        1 -> {
-//                            binding.buttonNext.text = getString(R.string.next_level)
-//                            binding.textViewPrevious.visibility= View.VISIBLE
-//                            binding.textViewSkip.visibility= View.VISIBLE
-//                        }
-//                        2 -> {
-//                            binding.buttonNext.text = getString(R.string.next_level)
-//                            binding.textViewPrevious.visibility= View.GONE
-//                            binding.textViewSkip.visibility= View.VISIBLE
-//                        }
-//                        else -> {
-//                            binding.buttonNext.text = getString(R.string.next_level)
-//                        }
-//                    }
+
                     super.onPageSelected(position)
                 }
             })
 
         }
         getViewDataBinding().wormDotsIndicator.setViewPager2(getViewDataBinding().introViewPager)
-
 
     }
 

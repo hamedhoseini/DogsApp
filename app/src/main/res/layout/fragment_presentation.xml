@@ -4,6 +4,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="viewModel"
+            type="com.mihahoni.dogsapp.intro.PresentationViewModel" />
+    </data>
+
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -44,6 +50,7 @@
         android:text="@string/next"
         android:textColor="@color/white"
         android:textSize="@dimen/textSizeBig"
+        android:onClick="@{viewModel.goToTheNext}"
         app:layout_constraintTop_toBottomOf="@+id/worm_dots_indicator"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_weight="1"
