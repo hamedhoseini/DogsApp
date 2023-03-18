@@ -2,7 +2,7 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
-    id 'dagger.hilt.android.plugin'
+    id 'com.google.dagger.hilt.android'
     id 'androidx.navigation.safeargs.kotlin'
 }
 
@@ -38,6 +38,13 @@ android {
         viewBinding = true
         dataBinding = true
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+kapt {
+    correctErrorTypes true
 }
 
 dependencies {
@@ -60,8 +67,8 @@ dependencies {
     // Hilt
     implementation "com.google.dagger:hilt-android:$rootProject.hilt_android_version"
     kapt "com.google.dagger:hilt-android-compiler:$rootProject.hilt_android_version"
-    implementation "androidx.hilt:hilt-lifecycle-viewmodel:$rootProject.hilt_viewModel_version"
-    kapt "androidx.hilt:hilt-compiler:$rootProject.hilt_viewModel_version"
+//    implementation "androidx.hilt:hilt-lifecycle-viewmodel:$rootProject.hilt_viewModel_version"
+//    kapt "androidx.hilt:hilt-compiler:$rootProject.hilt_viewModel_version"
 
     // Retrofit
     implementation "com.squareup.retrofit2:retrofit:$rootProject.retrofit_version"

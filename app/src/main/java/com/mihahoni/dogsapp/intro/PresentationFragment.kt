@@ -9,9 +9,12 @@ import com.mihahoni.dogsapp.base.BaseFragment
 import com.mihahoni.dogsapp.data.PresentationEntity
 import com.mihahoni.dogsapp.databinding.FragmentPresentationBinding
 import com.mihahoni.dogsapp.util.ZoomOutPageTransformer
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class PresentationFragment : BaseFragment<FragmentPresentationBinding>() {
 
+    private val presentationViewModel by viewModels<PresentationViewModel>()
     override fun viewLayoutId(): Int = R.layout.fragment_presentation
 
     override fun observeViewModel() {
