@@ -1,4 +1,4 @@
-package com.mihahoni.dogsapp.intro
+package com.mihahoni.dogsapp.ui.presentation
 
 import com.mihahoni.dogsapp.R
 import com.mihahoni.dogsapp.base.BaseFragment

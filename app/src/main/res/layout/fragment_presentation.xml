@@ -7,13 +7,13 @@
     <data>
         <variable
             name="viewModel"
-            type="com.mihahoni.dogsapp.intro.PresentationViewModel" />
+            type="com.mihahoni.dogsapp.ui.presentation.PresentationViewModel" />
     </data>
 
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".intro.PresentationFragment">
+    tools:context=".ui.presentation.PresentationFragment">
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/introViewPager"

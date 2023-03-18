@@ -66,9 +66,9 @@ dependencies {
 
     // Hilt
     implementation "com.google.dagger:hilt-android:$rootProject.hilt_android_version"
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
     kapt "com.google.dagger:hilt-android-compiler:$rootProject.hilt_android_version"
-//    implementation "androidx.hilt:hilt-lifecycle-viewmodel:$rootProject.hilt_viewModel_version"
-//    kapt "androidx.hilt:hilt-compiler:$rootProject.hilt_viewModel_version"
 
     // Retrofit
     implementation "com.squareup.retrofit2:retrofit:$rootProject.retrofit_version"

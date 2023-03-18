@@ -1,11 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_navigation"
     app:startDestination="@id/presentationFragment">
 
     <fragment
         android:id="@+id/presentationFragment"
-        android:name="com.mihahoni.dogsapp.intro.PresentationFragment"
-        android:label="PresentationFragment" />
+        android:name="com.mihahoni.dogsapp.ui.presentation.PresentationFragment"
+        android:label="PresentationFragment" >
+        <action
+            android:id="@+id/action_presentationFragment_to_dogsListFragment"
+            app:popUpTo="@+id/main_navigation"
+            app:popUpToInclusive="true"
+            app:destination="@id/dogsListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/dogsListFragment"
+        android:name="com.mihahoni.dogsapp.ui.dogsList.DogsListFragment"
+        android:label="fragment_dogs_list_list"
+        tools:layout="@layout/fragment_dogs_list" />
 </navigation>

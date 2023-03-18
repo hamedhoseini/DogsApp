@@ -1,4 +1,4 @@
-package com.mihahoni.dogsapp.intro
+package com.mihahoni.dogsapp.ui.presentation
 
 import androidx.core.content.ContextCompat
 import androidx.databinding.Observable
@@ -6,6 +6,7 @@ import androidx.databinding.ObservableInt
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.mihahoni.dogsapp.R
@@ -13,6 +14,7 @@ import com.mihahoni.dogsapp.base.BaseFragment
 import com.mihahoni.dogsapp.data.PresentationEntity
 import com.mihahoni.dogsapp.databinding.FragmentPresentationBinding
 import com.mihahoni.dogsapp.util.ZoomOutPageTransformer
+import com.mihahoni.dogsapp.util.observeEvent
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -22,13 +24,23 @@ class PresentationFragment : BaseFragment<FragmentPresentationBinding>() {
     override fun viewLayoutId(): Int = R.layout.fragment_presentation
 
     override fun observeViewModel() {
+        observeEvent(presentationViewModel.openDogsList, ::goToDogsList)
+
         presentationViewModel.pageNumber.addOnPropertyChangedCallback(
             object : Observable.OnPropertyChangedCallback() {
                 override fun onPropertyChanged(sender: Observable?, pageNumber: Int) {
-                    getViewDataBinding().introViewPager.currentItem =
-                        (sender as ObservableInt).get()
+                    val currentPage = (sender as ObservableInt).get()
+                    if (currentPage == 3) {
+                    } else {
+                        getViewDataBinding().introViewPager.currentItem =
+                            (sender as ObservableInt).get()
+                    }
                 }
             })
+    }
+
+    private fun goToDogsList() {
+        findNavController(this@PresentationFragment).navigate(PresentationFragmentDirections.actionPresentationFragmentToDogsListFragment())
     }
 
     override fun initViews() {
