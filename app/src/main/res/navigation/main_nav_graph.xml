@@ -28,5 +28,9 @@
         android:id="@+id/dogBreedDetailFragment"
         android:name="com.mihahoni.dogsapp.ui.dogDetails.DogBreedDetailFragment"
         android:label="fragment_dog_breed_detail"
-        tools:layout="@layout/fragment_dog_breed_detail" />
+        tools:layout="@layout/fragment_dog_breed_detail">
+        <argument
+            android:name="breedName"
+            app:argType="string" />
+    </fragment>
 </navigation>

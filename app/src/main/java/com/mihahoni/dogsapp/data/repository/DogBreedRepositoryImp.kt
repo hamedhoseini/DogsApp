@@ -15,5 +15,9 @@ class DogBreedRepositoryImp @Inject constructor(
         return apiService.getRandomImageByBreed(breedName)
     }
 
+    override suspend fun getBreedAllImages(breedName: String): BaseEntity<List<String>> {
+        return apiService.getBreedAllImages(breedName)
+    }
+
 
 }

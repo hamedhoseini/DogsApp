@@ -14,15 +14,20 @@ import dagger.hilt.android.AndroidEntryPoint
 class DogBreedsListFragment : BaseFragment<FragmentDogBreedsListBinding>() {
 
     private lateinit var dogsListAdapter: DogBreedsListAdapter
-    private var columnCount = 3
+    private val columnCount = 3
 
     private val dogBreedsListViewModel by viewModels<DogBreedsListViewModel>()
     override fun viewLayoutId(): Int = R.layout.fragment_dog_breeds_list
 
     override fun observeViewModel() {
-        observe(dogBreedsListViewModel.breedDetail) {
-
-            findNavController().navigate(DogBreedsListFragmentDirections.actionDogsListFragmentToDogBreedDetailFragment())
+        observe(dogBreedsListViewModel.breedDetail) { breedName ->
+            breedName?.let {
+                findNavController().navigate(
+                    DogBreedsListFragmentDirections.actionDogsListFragmentToDogBreedDetailFragment(
+                        it
+                    )
+                )
+            }
         }
     }
 

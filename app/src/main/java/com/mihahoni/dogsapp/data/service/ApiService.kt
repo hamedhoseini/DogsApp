@@ -10,4 +10,7 @@ interface ApiService {
 
     @GET("api/breed/{breed}/images/random")
     suspend fun getRandomImageByBreed(@Path("breed") breedName: String): BaseEntity<String>
+
+    @GET("api/breed/{breed}/images")
+    suspend fun getBreedAllImages(@Path("breed") breedName: String): BaseEntity<List<String>>
 }

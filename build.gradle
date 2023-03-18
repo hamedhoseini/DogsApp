@@ -23,4 +23,6 @@ ext {
     retrofit_version = '2.9.0'
     okhttp_version = '5.0.0-alpha.10'
     glide_version = '4.14.2'
+    compose_bom_version = '2022.10.00'
+
 }
