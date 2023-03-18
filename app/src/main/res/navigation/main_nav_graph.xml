@@ -8,16 +8,25 @@
     <fragment
         android:id="@+id/presentationFragment"
         android:name="com.mihahoni.dogsapp.ui.presentation.PresentationFragment"
-        android:label="PresentationFragment" >
+        android:label="PresentationFragment">
         <action
             android:id="@+id/action_presentationFragment_to_dogsListFragment"
+            app:destination="@id/dogsListFragment"
             app:popUpTo="@+id/main_navigation"
-            app:popUpToInclusive="true"
-            app:destination="@id/dogsListFragment" />
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/dogsListFragment"
         android:name="com.mihahoni.dogsapp.ui.dogsList.DogBreedsListFragment"
         android:label="fragment_dogs_list_list"
-        tools:layout="@layout/fragment_dog_breeds_list" />
+        tools:layout="@layout/fragment_dog_breeds_list">
+        <action
+            android:id="@+id/action_dogsListFragment_to_dogBreedDetailFragment"
+            app:destination="@id/dogBreedDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/dogBreedDetailFragment"
+        android:name="com.mihahoni.dogsapp.ui.dogDetails.DogBreedDetailFragment"
+        android:label="fragment_dog_breed_detail"
+        tools:layout="@layout/fragment_dog_breed_detail" />
 </navigation>

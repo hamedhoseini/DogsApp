@@ -1,11 +1,13 @@
 package com.mihahoni.dogsapp.ui.dogsList
 
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mihahoni.dogsapp.R
 import com.mihahoni.dogsapp.base.BaseFragment
 import com.mihahoni.dogsapp.databinding.FragmentDogBreedsListBinding
+import com.mihahoni.dogsapp.util.observe
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -18,6 +20,10 @@ class DogBreedsListFragment : BaseFragment<FragmentDogBreedsListBinding>() {
     override fun viewLayoutId(): Int = R.layout.fragment_dog_breeds_list
 
     override fun observeViewModel() {
+        observe(dogBreedsListViewModel.breedDetail) {
+
+            findNavController().navigate(DogBreedsListFragmentDirections.actionDogsListFragmentToDogBreedDetailFragment())
+        }
     }
 
     override fun initViews() {

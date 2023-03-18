@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.mihahoni.dogsapp.base.ObservableViewModel
 import com.mihahoni.dogsapp.data.StateHandler
 import com.mihahoni.dogsapp.data.repository.DogBreedRepository
+import com.mihahoni.dogsapp.util.SingleLiveDataEvent
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
@@ -22,10 +23,13 @@ class DogBreedsListViewModel @Inject constructor(
     }
 
     private val _dogBreedsList = MutableLiveData<List<DogBreedViewItem>>(emptyList())
-    val dogBreedsList: LiveData<List<DogBreedViewItem>>by lazy { _dogBreedsList}
+    val dogBreedsList: LiveData<List<DogBreedViewItem>> by lazy { _dogBreedsList }
 
-    private val _breedsFetchingState by lazy { MutableLiveData<StateHandler>(StateHandler.Loading) }
+    private val _breedsFetchingState = MutableLiveData<StateHandler>(StateHandler.Loading)
     val breedsFetchingState: LiveData<StateHandler> by lazy { _breedsFetchingState }
+
+    private val _breedDetail = SingleLiveDataEvent<String>()
+    val breedDetail: SingleLiveDataEvent<String> by lazy { _breedDetail }
 
     private fun loadData() {
         viewModelScope.launch {
@@ -33,7 +37,12 @@ class DogBreedsListViewModel @Inject constructor(
                 val dogBreedsList = dogBreedRepository.getAllDogBreeds()
                 val breedsViewItemList = mutableListOf<DogBreedViewItem>()
                 dogBreedsList.message.keys.forEach { breedName ->
-                    breedsViewItemList.add(DogBreedViewItem(null, breedName))
+                    breedsViewItemList.add(
+                        DogBreedViewItem(
+                            null,
+                            breedName
+                        ) { onBreedItemClicked(breedName) }
+                    )
                 }
                 _breedsFetchingState.value = StateHandler.Success(dogBreedsList)
 
@@ -58,5 +67,8 @@ class DogBreedsListViewModel @Inject constructor(
         }
     }
 
+    private fun onBreedItemClicked(breedName: String) {
+        _breedDetail.value = breedName
+    }
 
 }
