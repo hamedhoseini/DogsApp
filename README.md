@@ -5,10 +5,15 @@ This is the sample app to use API at https://dog.ceo/
 These dependencies and structures were utilized:
 
 Architecture: MVVM
+
 Views: Hybrid (XML and jetpack Compose)
+
 Dependency Injection: Hilt
+
 Navigator: Navigation Component
+
 Http client: Retrofit
+
 DataBinding
 
 
