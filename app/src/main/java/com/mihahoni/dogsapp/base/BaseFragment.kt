@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
-import com.mihahoni.dogsapp.MainActivity
+import com.mihahoni.dogsapp.ui.MainActivity
 
 abstract class BaseFragment<T : ViewDataBinding> : Fragment() {
 

@@ -1,8 +1,9 @@
-package com.mihahoni.dogsapp
+package com.mihahoni.dogsapp.ui
 
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import com.mihahoni.dogsapp.R
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
